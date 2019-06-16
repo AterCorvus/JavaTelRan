@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;model.Chineize&apos; to &apos;Chinese&apos;&#x0D;&#x0A;- Original project: &apos;12-06-2019Chinizes&apos;&#x0D;&#x0A;- Original element: &apos;model.Chineize&apos;&#x0D;&#x0A;- Renamed element: &apos;model.Chinese&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Chineize&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;model{Chineize.java[Chineize" matchStrategy="1" name="Chinese" qualified="false" references="true" similarDeclarations="false" stamp="1560341552880" textual="false" version="1.0"/>
+</session>

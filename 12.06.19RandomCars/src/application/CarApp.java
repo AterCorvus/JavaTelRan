@@ -1,0 +1,15 @@
+package application;
+
+import car.Car;
+
+public class CarApp {
+	private static final int NUM_CARS = 10;
+	
+	public static void main(String[] args) {
+		Car[] garage = new Car[NUM_CARS];
+		for (int i = 0; i < garage.length; ++i) {
+			garage[i] = Car.randomCar();
+		}
+		System.out.println(Car.randomCar());
+	}
+}

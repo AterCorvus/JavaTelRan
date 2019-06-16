@@ -1,0 +1,20 @@
+package randomLib;
+
+import java.util.Random;
+
+public class RandomLib {
+	
+	private static Random gen = new Random();
+	
+	public static int nextInRange(int min, int max) {
+		return min + gen.nextInt(max - min + 1);
+	}
+	
+	public static double nextInRange(double min, double max) {
+		return min + gen.nextDouble()*(min - max);
+	}
+	
+	public static boolean nextInRange(double trueProbability) {
+		return gen.nextDouble() < trueProbability;
+	}
+}

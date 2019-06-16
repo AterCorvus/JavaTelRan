@@ -1,0 +1,37 @@
+package randomLib;
+
+import java.util.Random;
+
+public class RandomLib {
+	
+	private static final String ALPHABET = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
+	private static final String[] CAR_MODELS = {
+			"Pobeda", "Volga", "Moskvich", "Zhiguli", "Zaporozhets", "Ford", "Toyota", "Kia"
+	};
+	
+	private static Random gen = new Random();
+	
+	public static int nextInRange(int min, int max) {
+		return min + gen.nextInt(max - min + 1);
+	}
+	
+	public static double nextInRange(double min, double max) {
+		return min + gen.nextDouble()*(max - min);
+	}
+	
+	public static boolean randomBool(double trueProbability) {
+		return gen.nextDouble() < trueProbability;
+	}
+	
+	public static String randomString(int len) {
+		String result = "";
+		for (int i = 0; i < len; ++i)
+			result = result + Character.toString(ALPHABET.charAt(gen.nextInt(ALPHABET.length())));
+		return result;
+	}
+	
+	public static String randomStringFromSet(String[] set) {
+		if (set == null || set.length == 0) return "You suck";
+		return set[gen.nextInt(set.length)];
+	}
+}

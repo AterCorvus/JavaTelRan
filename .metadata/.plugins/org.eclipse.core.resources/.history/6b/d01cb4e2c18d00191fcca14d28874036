@@ -1,0 +1,40 @@
+package application;
+
+public class StringMethodsApp {
+	
+	public static void main(String[] args) {
+		
+		String data = "\n         \t    Vasia  \t       ";
+		System.out.println(data.length());
+		data = data.trim();
+		String str2 = "Vasia";
+		System.out.println(myEquals(data, str2));
+		System.out.println(reverse(str2));
+		
+	}
+	
+	public static boolean myEquals(String str1, String str2){
+		
+		int li = str1.length();
+		if (li != str2.length()) return false;
+		
+		for (int i = 0; i < li; i++) {
+			
+			if (str1.charAt(i) != str2.charAt(i)) return false;
+			
+		}
+		
+		return true;
+		
+	}
+	
+	public static String reverse(String str){
+		
+		String result = "";
+		int sLen = str.length();
+		
+		for (int i = 0; i < sLen; i++) result = str.charAt(i) + result;
+		return result;
+		
+	}
+}

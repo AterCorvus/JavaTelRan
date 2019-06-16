@@ -1,0 +1,13 @@
+package randomLib;
+
+import java.util.Random;
+
+public class RandomLib {
+	
+	private static Random gen = new Random();
+	
+	public static int nextIntRange(int min, int max) {
+		return min + gen.nextInt(max - min + 1);
+	}
+	
+}

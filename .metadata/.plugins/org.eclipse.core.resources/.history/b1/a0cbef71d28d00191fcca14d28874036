@@ -1,0 +1,10 @@
+package application;
+
+public class SplitJoinApp {
+
+	public static void main(String[] args) {
+		String data = "Sasha\t   ;62\t    ; 176.5\t;true    ";
+		String[] elements = data.trim().split(";");
+	}
+	
+}

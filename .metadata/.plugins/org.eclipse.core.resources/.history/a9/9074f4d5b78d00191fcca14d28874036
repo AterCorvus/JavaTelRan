@@ -1,0 +1,12 @@
+package application;
+
+public class StringMethodsApp {
+	
+	public static void main(String[] args) {
+		
+		String data = "/n         /t    Vasia  /t       ";
+		System.out.println(data.length());
+		
+	}
+	
+}
