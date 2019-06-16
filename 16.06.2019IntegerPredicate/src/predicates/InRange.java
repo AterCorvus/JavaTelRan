@@ -1,0 +1,25 @@
+package predicates;
+
+import java.util.function.Predicate;
+
+public class InRange implements Predicate<Integer>{
+
+	private int from;
+	private int until;
+	
+	
+	
+	public InRange(int from, int until) {
+		super();
+		this.from = from;
+		this.until = until;
+	}
+
+
+
+	@Override
+	public boolean test(Integer t) {
+		return t >= from && t <= until; 
+	}
+
+}
