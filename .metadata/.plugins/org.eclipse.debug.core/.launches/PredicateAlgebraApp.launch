@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/16.06.2019PredicateAlgebra/src/application/PredicateAlgebraApp.java"/>
+<listEntry value="/16.06.19PredicateAlgebra/src/application/PredicateAlgebraApp.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="application.PredicateAlgebraApp"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="16.06.2019PredicateAlgebra"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="16.06.19PredicateAlgebra"/>
 </launchConfiguration>

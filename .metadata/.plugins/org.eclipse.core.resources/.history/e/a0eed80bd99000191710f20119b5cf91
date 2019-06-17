@@ -1,0 +1,14 @@
+package comparator;
+
+import java.util.Comparator;
+
+import car.Car;
+
+public class EngineCarComporator implements Comparator<Car>{
+
+	@Override
+	public int compare(Car c1, Car c2) {
+		return Double.compare(c1.getEngine(), c2.getEngine()); 
+	}
+
+}
