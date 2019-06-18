@@ -105,7 +105,7 @@ public class MyArrayList<T> implements MyList<T> {
 	@Override
 	public void shuffle() {
 		int genEl = 0;
-		for (int i = size - 1; i >= 0; i--) {
+		for (int i = size - 1; i > 0; i--) {
 			Object temp = array[i];
 			genEl = gen.nextInt(size - i);
 			array[i] = array[genEl]; 
