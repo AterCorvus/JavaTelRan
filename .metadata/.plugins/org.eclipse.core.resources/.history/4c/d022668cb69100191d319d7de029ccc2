@@ -1,0 +1,83 @@
+package model;
+
+public class MyArrayList<T> implements MyList<T>{
+
+	private static final int DEFAULT_CAPACITY = 10;
+	
+	private Object[] array;
+	private int size = 0;
+	private int capacity = DEFAULT_CAPACITY;
+	
+	public MyArrayList() {
+		array = new Object[DEFAULT_CAPACITY];
+	}
+	
+	public MyArrayList(int specCapac) {
+		if (specCapac < DEFAULT_CAPACITY)
+			specCapac = DEFAULT_CAPACITY;
+		
+		array = new Object[specCapac];
+		capacity = specCapac;
+	}
+	
+	@Override
+	public void add(T data) {
+		
+		if (size == capacity) enlargeArr();
+		
+		array[size++] = data;
+	}
+
+	private void enlargeArr() {
+		
+	}
+
+	@Override
+	public boolean add(T data, int index) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public T get(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean set(T data, int index) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean contains(T data) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public T remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void trim() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void shuffle() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

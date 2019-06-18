@@ -1,0 +1,59 @@
+package model;
+
+public class MyArrayList<T> implements MyList<T>{
+
+	@Override
+	public void add(T data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean add(T data, int index) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public T get(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean set(T data, int index) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean contains(T data) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public T remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void trim() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void shuffle() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
