@@ -87,8 +87,24 @@ public class MyArrayList<T> implements MyList<T> {
 
 	@Override
 	public T remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size) 
+			return null;
+		
+		T result = (T) array[index];
+		System.arraycopy(array, index + 1, array, index, size - 1 - index);
+		array[size - 1] = null;
+		size--;
+		return result;
+	}
+	
+	public boolean removeRange(int from, int untill){
+		if (from < 0 || untill > size || from >= untill) 
+			return false;
+		
+		System.arraycopy(array, untill, array, from, size - untill);
+		size = size - (untill - from);
+		Arrays.fill(array, size, size + (untill - from), null);
+		return true;
 	}
 
 	@Override
@@ -118,7 +134,7 @@ public class MyArrayList<T> implements MyList<T> {
 		for (int i = 0; i < size; i++) 
 			sb.append("  " + array[i]);
 		
-		return "[" + sb.toString().substring(2) + "]";
+		return "[" + sb.toString().trim() + "]";
 	}
 
 }

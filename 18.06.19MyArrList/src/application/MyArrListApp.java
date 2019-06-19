@@ -6,7 +6,7 @@ import model.MyArrayList;
 
 public class MyArrListApp {
 	
-	private static final int NUM_NUM = 30;
+	private static final int NUM_NUM = 10;
 	static Random gen = new Random(12345);
 	
 	public static void main(String[] args) {
@@ -16,9 +16,9 @@ public class MyArrListApp {
 		
 		System.out.println(mali.toString());
 		System.out.println(mali.get(5));
-		System.out.println(mali.set(666, 8));
+		//System.out.println(mali.set(666, 8));
 		System.out.println(mali);
-		mali.add(888, 10);
+		//mali.add(888, 10);
 		System.out.println(mali);
 		System.out.println(mali.indexOf(888));
 		System.out.println(mali.contains(6666));
@@ -27,6 +27,9 @@ public class MyArrListApp {
 		System.out.println(mali.array.length);*/
 		mali.shuffle();
 		System.out.println(mali);
+		mali.removeRange(1,3);
+		System.out.println(mali);
+		System.out.println(mali.size());
 	}
 	
 }
