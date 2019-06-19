@@ -21,5 +21,34 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 /.metadata/
 /.recommenders/
+=======
+*.ini
+*.index
+*.dat
+*.tree
+*.resources
+*.xmi
+>>>>>>> b2c7c1f3568f885173f1cf3fd3d870efbf547f8f
+.metadata/.plugins/org.eclipse.core.resources/.history/0/a0696fdde08c0019112fdfa15dd74b1d
+.metadata/.plugins/org.eclipse.core.resources/.history/13/e0801767df8c0019112fdfa15dd74b1d
+.metadata/.plugins/org.eclipse.core.resources/.history/14/6059de38a89100191d319d7de029ccc2
+.metadata/.plugins/org.eclipse.core.resources/.history/15/50a6d750ff8c00191477c27bca0faed2
+.metadata/.plugins/org.eclipse.core.resources/.history/16/7021c02ce18c0019112fdfa15dd74b1d
+.metadata/.plugins/org.eclipse.core.resources/.history/16/f0a7be9bea8c0019112fdfa15dd74b1d
+.metadata/.plugins/org.eclipse.core.resources/.history/1e/708ed10d969100191d319d7de029ccc2
+.metadata/.plugins/org.eclipse.core.resources/.history/22/50341ea9e18c0019112fdfa15dd74b1d
+.metadata/.plugins/org.eclipse.core.resources/.history/27/10e813c49e9100191d319d7de029ccc2
+.metadata/.plugins/org.eclipse.core.resources/.history/27/90d70f47a69100191d319d7de029ccc2
+*.index
+*.properties
+*.dat
+*.resources
+*.prefs
+*.history
+*.index
+*.ini
+*.json
+*.fdt

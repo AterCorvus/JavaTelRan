@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 INDEX VERSION 1.131+D:\EclipseWorkspace\George\.metadata\.plugins\org.eclipse.jdt.core
 2230041189.index
+=======
+INDEX VERSION 1.127+C:\Users\user\George\.metadata\.plugins\org.eclipse.jdt.core
+1996105539.index
+3726013379.index
+1401070335.index
+>>>>>>> b2c7c1f3568f885173f1cf3fd3d870efbf547f8f
 525006658.index
 3074877222.index
 3894376121.index
+<<<<<<< HEAD
 3285578632.index
 1373614943.index
 2459314203.index
@@ -21,3 +29,27 @@ INDEX VERSION 1.131+D:\EclipseWorkspace\George\.metadata\.plugins\org.eclipse.jd
 2780863054.index
 730769209.index
 1116939280.index
+=======
+1301353557.index
+4093836928.index
+2998802874.index
+2230041189.index
+2780863054.index
+2183536066.index
+3690072482.index
+2790509059.index
+3572279221.index
+609467764.index
+46599334.index
+1060244117.index
+3285578632.index
+2152665774.index
+1672990180.index
+1768007783.index
+328321291.index
+2994437926.index
+2398722950.index
+1396812118.index
+1217774155.index
+2459314203.index
+>>>>>>> b2c7c1f3568f885173f1cf3fd3d870efbf547f8f
