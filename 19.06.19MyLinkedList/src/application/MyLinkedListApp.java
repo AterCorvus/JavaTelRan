@@ -1,12 +1,13 @@
 package application;
 
+import model.MtUDLinkedList;
 import model.MyLinkedList;
 
 public class MyLinkedListApp {
 
 	public static void main(String[] args) {
 		
-		MyLinkedList<Integer> mlli = new MyLinkedList<>();
+		MtUDLinkedList<Integer> mlli = new MtUDLinkedList<>();
 		
 		mlli.add(3);
 		mlli.add(11);
@@ -14,6 +15,7 @@ public class MyLinkedListApp {
 		mlli.addFirst(4);
 		mlli.addFirst(-2);
 		mlli.addFirst(6);
+		
 		
 		mlli.addByIndex(3, 111);
 		
@@ -28,9 +30,13 @@ public class MyLinkedListApp {
 		System.out.println(mlli);
 		mlli.remove(new Integer(-2));
 		System.out.println(mlli);
-		
+		mlli.add(3);
+		System.out.println(mlli);
 		mlli.eliminateAll();
-		
+		System.out.println(mlli);
+		mlli.add(7);
+		System.out.println(mlli);
+		mlli.add(8);
 		System.out.println(mlli);
 	}
 	
