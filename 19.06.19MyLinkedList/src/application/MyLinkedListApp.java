@@ -20,6 +20,18 @@ public class MyLinkedListApp {
 		System.out.println(mlli);
 		System.out.println(mlli.indexOf(-2));
 		
+		mlli.removeFirst();
+		System.out.println(mlli);
+		mlli.removeLast();
+		System.out.println(mlli);
+		mlli.remove(3);
+		System.out.println(mlli);
+		mlli.remove(new Integer(-2));
+		System.out.println(mlli);
+		
+		mlli.eliminateAll();
+		
+		System.out.println(mlli);
 	}
 	
 }
