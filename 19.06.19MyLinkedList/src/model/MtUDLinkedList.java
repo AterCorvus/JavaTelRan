@@ -1,14 +1,14 @@
 package model;
 
-public class MtUDLinkedList<T> implements MyList<T> {
+public class MtUDLinkedList<T> extends AbstractList<T> {
 
-	private NodeUD<T> head;
-	private NodeUD<T> tail;
+	private Node<T> head;
+	private Node<T> tail;
 	private int size = 0;
-
+	
 	@Override
 	public void add(T data) {
-		NodeUD<T> node = new NodeUD<T>(data);
+		Node<T> node = new Node<T>(data);
 
 		if (head == null)
 			head = node;
@@ -21,7 +21,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 
 	@Override
 	public void addFirst(T data) {
-		NodeUD<T> node = new NodeUD<T>(data);
+		Node<T> node = new Node<T>(data);
 		if (head == null)
 			tail = node;
 		else
@@ -46,8 +46,8 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		else if (index == size)
 			add(data);
 		else {
-			NodeUD<T> node = new NodeUD<T>(data);
-			NodeUD<T> prev = getNodeByIndex(index - 1);
+			Node<T> node = new Node<T>(data);
+			Node<T> prev = getNodeByIndex(index - 1);
 
 			node.setNext(prev.getNext());
 			prev.setNext(node);
@@ -57,11 +57,11 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		return true;
 	}
 
-	private NodeUD<T> getNodeByIndex(int index) {
+	private Node<T> getNodeByIndex(int index) {
 		if (index < 0 || index >= size)
 			return null;
 
-		NodeUD<T> current = head;
+		Node<T> current = head;
 		int counter = 0;
 		while (counter < index) {
 			current = current.getNext();
@@ -76,7 +76,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 			return -1;
 
 		int counter = 0;
-		for (NodeUD<T> node = head; node != null; node = node.getNext(), counter++) {
+		for (Node<T> node = head; node != null; node = node.getNext(), counter++) {
 			if (node.getData().equals(data))
 				return counter;
 		}
@@ -123,7 +123,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeUD<T> node = head;
+			Node<T> node = head;
 			head = node.getNext();
 			size--;
 
@@ -133,7 +133,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		}
 	}
 
-	private void eliminate(NodeUD<T> node){
+	private void eliminate(Node<T> node){
 		if (node == null)
 			return;
 		
@@ -148,7 +148,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeUD<T> node = tail;
+			Node<T> node = tail;
 			tail = getPrev(node);
 			tail.setNext(null);
 			size--;
@@ -169,7 +169,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 			return removeLast();
 		}
 
-		NodeUD<T> target = getNodeByIndex(index);
+		Node<T> target = getNodeByIndex(index);
 		if (target == null)
 			return null;
 
@@ -181,7 +181,7 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		if (head == null)
 			return null;
 
-		for (NodeUD<T> node = head; node != null; node = node.getNext()) {
+		for (Node<T> node = head; node != null; node = node.getNext()) {
 			if (node.getData().equals(data)) {
 				return remove(node);
 			}
@@ -204,13 +204,13 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		return data;
 	}
 
-	private NodeUD<T> getPrev(NodeUD<T> node) {
+	private Node<T> getPrev(Node<T> node) {
 		if (node == null) {
 			return null;
 		} else if (node == head) {
 			return null;
 		} else {
-			for (NodeUD<T> prev = head; prev != null; prev = prev.getNext()) {
+			for (Node<T> prev = head; prev != null; prev = prev.getNext()) {
 				if (prev.getNext() == node)
 					return prev;
 			}
@@ -218,14 +218,14 @@ public class MtUDLinkedList<T> implements MyList<T> {
 		return null;
 	}
 
-	private T remove(NodeUD<T> node) {
+	protected T remove(Node<T> node) {
 		if (node == null) {
 			return null;
 		} else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeUD<T> prev = getPrev(node);
-			NodeUD<T> next = node.getNext();
+			Node<T> prev = getPrev(node);
+			Node<T> next = node.getNext();
 
 			if (next == null)
 				return removeLast();
@@ -242,32 +242,15 @@ public class MtUDLinkedList<T> implements MyList<T> {
 			return data;
 		}
 	}
-
-	@Override
+	
 	public void eliminateAll() {
 		if (head == null)
 			return;
 
-		for (NodeUD<T> node = head; node != null; node = node.getNext()) {
+		for (Node<T> node = head; node != null; node = node.getNext()) {
 			node.setData(null);
 			remove(node);
 		}
-	}
-
-	@Override
-	public int size() {
-		return size;
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		NodeUD<T> temp = head;
-		while (temp != null) {
-			sb.append(temp.getData() + " ");
-			temp = temp.getNext();
-		}
-		return "[" + sb.toString().trim() + "]";
 	}
 
 }

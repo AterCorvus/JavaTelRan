@@ -1,14 +1,14 @@
 package model;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList<T> extends AbstractList<T> {
 
-	private Node<T> head = null;
-	private Node<T> tail = null;
+	private NodeDUO<T> head = null;
+	private NodeDUO<T> tail = null;
 	private int size = 0;
 
 	@Override
 	public void add(T data) {
-		Node<T> node = new Node<T>(data);
+		NodeDUO<T> node = new NodeDUO<T>(data);
 
 		if (head == null) {
 			head = node;
@@ -23,7 +23,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
 	@Override
 	public void addFirst(T data) {
-		Node<T> node = new Node<T>(data);
+		NodeDUO<T> node = new NodeDUO<T>(data);
 
 		if (head == null) {
 			tail = node;
@@ -50,9 +50,9 @@ public class MyLinkedList<T> implements MyList<T> {
 		} else if (index == size) {
 			add(data);
 		} else {
-			Node<T> node = new Node<T>(data);
-			Node<T> target = getNodeByIndex(index);
-			Node<T> prev = target.getPrev();
+			NodeDUO<T> node = new NodeDUO<T>(data);
+			NodeDUO<T> target = getNodeByIndex(index);
+			NodeDUO<T> prev = target.getPrev();
 
 			node.setNext(target);
 			node.setPrev(prev);
@@ -65,11 +65,11 @@ public class MyLinkedList<T> implements MyList<T> {
 		return true;
 	}
 
-	private Node<T> getNodeByIndex(int index) {
+	private NodeDUO<T> getNodeByIndex(int index) {
 		if (index < 0 || index > size)
 			return null;
 		
-		Node<T> result = null;
+		NodeDUO<T> result = null;
 		if (index < (size / 2)) {
 			result = head;
 			int counter = 0;
@@ -97,7 +97,7 @@ public class MyLinkedList<T> implements MyList<T> {
 			return -1;
 
 		int counter = 0;
-		for (Node<T> node = head; node != null; node = node.getNext(), counter++) {
+		for (NodeDUO<T> node = head; node != null; node = node.getNext(), counter++) {
 			if (node.getData().equals(data))
 				return counter;
 		}
@@ -151,7 +151,7 @@ public class MyLinkedList<T> implements MyList<T> {
 		return data;
 	}
 
-	private void eliminate(Node<T> node){
+	private void eliminate(NodeDUO<T> node){
 		if (node == null)
 			return;
 		
@@ -167,7 +167,7 @@ public class MyLinkedList<T> implements MyList<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> node = head;
+			NodeDUO<T> node = head;
 			head = node.getNext();
 			head.setPrev(null);
 			size--;
@@ -185,7 +185,7 @@ public class MyLinkedList<T> implements MyList<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> node = tail;
+			NodeDUO<T> node = tail;
 			tail = node.getPrev();
 			tail.setNext(null);
 			size--;
@@ -206,21 +206,21 @@ public class MyLinkedList<T> implements MyList<T> {
 			return removeLast();
 		}
 
-		Node<T> target = getNodeByIndex(index);
+		NodeDUO<T> target = getNodeByIndex(index);
 		if (target == null)
 			return null;
 
 		return remove(target);
 	}
 
-	private T remove(Node<T> node) {
+	protected T remove(NodeDUO<T> node) {
 		if (node == null) {
 			return null;
 		} else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> prev = node.getPrev();
-			Node<T> next = node.getNext();
+			NodeDUO<T> prev = node.getPrev();
+			NodeDUO<T> next = node.getNext();
 
 			if (next == null)
 				return removeLast();
@@ -245,7 +245,7 @@ public class MyLinkedList<T> implements MyList<T> {
 		if (head == null)
 			return null;
 
-		for (Node<T> node = head; node != null; node = node.getNext()) {
+		for (NodeDUO<T> node = head; node != null; node = node.getNext()) {
 			if (node.getData().equals(data)) {
 				return remove(node);
 			}
@@ -253,32 +253,15 @@ public class MyLinkedList<T> implements MyList<T> {
 
 		return null;
 	}
-
-	@Override
+	
 	public void eliminateAll() {
 		if (head == null)
 			return;
 
-		for (Node<T> node = head; node != null; node = node.getNext()) {
+		for (NodeDUO<T> node = head; node != null; node = node.getNext()) {
 			node.setData(null);
 			remove(node);
 		}
-	}
-
-	@Override
-	public int size() {
-		return size;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		Node<T> temp = head;
-		while (temp != null) {
-			sb.append(temp.getData() + " ");
-			temp = temp.getNext();
-		}
-		return "[" + sb.toString().trim() + "]";
 	}
 
 }

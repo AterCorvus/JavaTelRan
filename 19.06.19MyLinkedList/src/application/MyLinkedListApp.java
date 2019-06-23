@@ -1,42 +1,40 @@
 package application;
 
-import model.MtUDLinkedList;
-import model.MyLinkedList;
+import model.MyLinkedStack;
 
 public class MyLinkedListApp {
 
 	public static void main(String[] args) {
 		
-		MtUDLinkedList<Integer> mlli = new MtUDLinkedList<>();
+		MyLinkedStack<Integer> mlli = new MyLinkedStack<>();
 		
-		mlli.add(3);
-		mlli.add(11);
-		mlli.addLast(-8);
-		mlli.addFirst(4);
-		mlli.addFirst(-2);
-		mlli.addFirst(6);
+		mlli.push(3);
+		mlli.push(11);
+		mlli.push(-8);
+		mlli.push(4);
+		mlli.push(-2);
+		mlli.push(6);
 		
-		
-		mlli.addByIndex(3, 111);
 		
 		System.out.println(mlli);
-		System.out.println(mlli.indexOf(-2));
 		
-		mlli.removeFirst();
+		System.out.println(mlli.peek());
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.removeLast();
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.remove(3);
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.remove(new Integer(-2));
+		mlli.push(3);
 		System.out.println(mlli);
-		mlli.add(3);
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.eliminateAll();
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.add(7);
+		mlli.poll();
+		mlli.poll();
 		System.out.println(mlli);
-		mlli.add(8);
+		mlli.push(6);
 		System.out.println(mlli);
 	}
 	

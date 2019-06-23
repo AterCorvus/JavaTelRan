@@ -2,20 +2,16 @@ package model;
 
 public class Node<T> {
 	
-	private T data = null;
-	private Node<T> next = null;
-	private Node<T> prev = null;
+	private T data;
+	private Node<T> next;
 	
-	public Node (T data){
+	public Node(T data) {
+		super();
 		this.data = data;
 	}
-
+	
 	public T getData() {
 		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
 	}
 
 	public Node<T> getNext() {
@@ -26,12 +22,8 @@ public class Node<T> {
 		this.next = next;
 	}
 
-	public Node<T> getPrev() {
-		return prev;
-	}
-
-	public void setPrev(Node<T> prev) {
-		this.prev = prev;
+	public void setData(T data) {
+		this.data = data;
 	}
 	
 	
