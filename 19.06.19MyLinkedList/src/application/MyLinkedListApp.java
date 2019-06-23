@@ -1,13 +1,14 @@
 package application;
 
-import model.MtUDLinkedList;
+import java.util.Iterator;
+
 import model.MyLinkedList;
 
 public class MyLinkedListApp {
 
 	public static void main(String[] args) {
 		
-		MtUDLinkedList<Integer> mlli = new MtUDLinkedList<>();
+		MyLinkedList<Integer> mlli = new MyLinkedList<>();
 		
 		mlli.add(3);
 		mlli.add(11);
@@ -38,6 +39,15 @@ public class MyLinkedListApp {
 		System.out.println(mlli);
 		mlli.add(8);
 		System.out.println(mlli);
+		mlli.add(9);
+		System.out.println(mlli);
+		mlli.eliminateAll();
+		System.out.println(mlli);
+		mlli.add(9);
+		
+		Iterator<Integer> it = mlli.butterflyIterator();
+		while(it.hasNext())
+			System.out.print(it.next() + "  ");
 	}
 	
 }

@@ -1,24 +1,19 @@
 package model;
 
-import java.util.Iterator;
-import java.util.ListIterator;
+public class MyUDLinkedList<T> implements MyList<T> {
 
-public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
-
-	private Node<T> head = null;
-	private Node<T> tail = null;
+	private NodeUD<T> head;
+	private NodeUD<T> tail;
 	private int size = 0;
 
 	@Override
 	public void add(T data) {
-		Node<T> node = new Node<T>(data);
+		NodeUD<T> node = new NodeUD<T>(data);
 
-		if (head == null) {
+		if (head == null)
 			head = node;
-		} else {
-			node.setPrev(tail);
+		else
 			tail.setNext(node);
-		}
 
 		tail = node;
 		size++;
@@ -26,14 +21,11 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 
 	@Override
 	public void addFirst(T data) {
-		Node<T> node = new Node<T>(data);
-
-		if (head == null) {
+		NodeUD<T> node = new NodeUD<T>(data);
+		if (head == null)
 			tail = node;
-		} else {
+		else
 			node.setNext(head);
-			head.setPrev(node);
-		}
 
 		head = node;
 		size++;
@@ -48,50 +40,34 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 	public boolean addByIndex(int index, T data) {
 		if (index < 0 || index > size)
 			return false;
-		if (index == 0) {
+
+		if (index == 0)
 			addFirst(data);
-		} else if (index == size) {
+		else if (index == size)
 			add(data);
-		} else {
-			Node<T> node = new Node<T>(data);
-			Node<T> target = getNodeByIndex(index);
-			Node<T> prev = target.getPrev();
+		else {
+			NodeUD<T> node = new NodeUD<T>(data);
+			NodeUD<T> prev = getNodeByIndex(index - 1);
 
-			node.setNext(target);
-			node.setPrev(prev);
+			node.setNext(prev.getNext());
 			prev.setNext(node);
-			target.setPrev(node);
-
 			size++;
 		}
 
 		return true;
 	}
 
-	private Node<T> getNodeByIndex(int index) {
-		if (index < 0 || index > size)
+	private NodeUD<T> getNodeByIndex(int index) {
+		if (index < 0 || index >= size)
 			return null;
-		
-		Node<T> result = null;
-		if (index < (size / 2)) {
-			result = head;
-			int counter = 0;
 
-			while (counter < index) {
-				result = result.getNext();
-				counter++;
-			}
-		} else {
-			result = tail;
-			int counter = size - 1;
-
-			while (counter > index) {
-				result = result.getPrev();
-				counter--;
-			}
+		NodeUD<T> current = head;
+		int counter = 0;
+		while (counter < index) {
+			current = current.getNext();
+			counter++;
 		}
-
-		return result;
+		return current;
 	}
 
 	@Override
@@ -100,7 +76,7 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 			return -1;
 
 		int counter = 0;
-		for (Node<T> node = head; node != null; node = node.getNext(), counter++) {
+		for (NodeUD<T> node = head; node != null; node = node.getNext(), counter++) {
 			if (node.getData().equals(data))
 				return counter;
 		}
@@ -140,29 +116,6 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 		return true;
 	}
 
-	private T removeLastOne() {
-		if (head == null)
-			return null;
-		
-		T data = head.getData();
-		eliminate(head);
-		
-		head = null;
-		tail = null;
-		size = 0;
-		
-		return data;
-	}
-
-	private void eliminate(Node<T> node){
-		if (node == null)
-			return;
-		
-		node.setPrev(null);
-		node.setNext(null);
-		node.setData(null);
-	}
-	
 	@Override
 	public T removeFirst() {
 		if (head == null)
@@ -170,17 +123,24 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> node = head;
+			NodeUD<T> node = head;
 			head = node.getNext();
-			head.setPrev(null);
 			size--;
-			
+
 			T data = node.getData();
 			eliminate(node);
 			return data;
 		}
 	}
 
+	private void eliminate(NodeUD<T> node){
+		if (node == null)
+			return;
+		
+		node.setNext(null);
+		node.setData(null);
+	}
+	
 	@Override
 	public T removeLast() {
 		if (head == null)
@@ -188,8 +148,8 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> node = tail;
-			tail = node.getPrev();
+			NodeUD<T> node = tail;
+			tail = getPrev(node);
 			tail.setNext(null);
 			size--;
 			
@@ -209,26 +169,66 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 			return removeLast();
 		}
 
-		Node<T> target = getNodeByIndex(index);
+		NodeUD<T> target = getNodeByIndex(index);
 		if (target == null)
 			return null;
 
 		return remove(target);
 	}
 
-	private T remove(Node<T> node) {
+	@Override
+	public T remove(T data) {
+		if (head == null)
+			return null;
+
+		for (NodeUD<T> node = head; node != null; node = node.getNext()) {
+			if (node.getData().equals(data)) {
+				return remove(node);
+			}
+		}
+
+		return null;
+	}
+
+	private T removeLastOne() {
+		if (head == null)
+			return null;
+
+		T data = head.getData();
+		eliminate(head);
+		
+		head = null;
+		tail = null;
+		size = 0;
+		
+		return data;
+	}
+
+	private NodeUD<T> getPrev(NodeUD<T> node) {
+		if (node == null) {
+			return null;
+		} else if (node == head) {
+			return null;
+		} else {
+			for (NodeUD<T> prev = head; prev != null; prev = prev.getNext()) {
+				if (prev.getNext() == node)
+					return prev;
+			}
+		}
+		return null;
+	}
+
+	private T remove(NodeUD<T> node) {
 		if (node == null) {
 			return null;
 		} else if (head == tail) {
 			return removeLastOne();
 		} else {
-			Node<T> prev = node.getPrev();
-			Node<T> next = node.getNext();
+			NodeUD<T> prev = getPrev(node);
+			NodeUD<T> next = node.getNext();
 
 			if (next == null)
 				return removeLast();
-			else
-				next.setPrev(prev);
 
 			if (prev == null)
 				return removeFirst();
@@ -244,30 +244,12 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 	}
 
 	@Override
-	public T remove(T data) {
-		if (head == null)
-			return null;
-
-		for (Node<T> node = head; node != null; node = node.getNext()) {
-			if (node.getData().equals(data)) {
-				return remove(node);
-			}
-		}
-
-		return null;
-	}
-
-	@Override
 	public void eliminateAll() {
 		if (head == null)
 			return;
 
-		
-		Node<T> next = head;
-		while (next != null) {
-			Node<T> node = next;
+		for (NodeUD<T> node = head; node != null; node = node.getNext()) {
 			node.setData(null);
-			next = node.getNext();
 			remove(node);
 		}
 	}
@@ -276,33 +258,16 @@ public class MyLinkedList<T> implements MyList<T>, Iterable<T> {
 	public int size() {
 		return size;
 	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		Node<T> temp = head;
+		NodeUD<T> temp = head;
 		while (temp != null) {
 			sb.append(temp.getData() + " ");
 			temp = temp.getNext();
 		}
 		return "[" + sb.toString().trim() + "]";
-	}
-
-	@Override
-	public Iterator<T> iterator() {
-		return new MyLinkedListIterator(head);
-	}
-	
-	public Iterator<T> backIterator() {
-		return new MyLinkedlistBackIterator(tail);
-	}
-	
-	public Iterator<T> butterflyIterator() {
-		return new MyLnkLstBttrflItr(head);
-	}
-	
-	public ListIterator<T> listIterator(){
-		return new MyLinkedListListIterator(this, head);
 	}
 
 }

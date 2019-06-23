@@ -1,7 +1,0 @@
-package predicate;
-
-import java.util.function.Predicate;
-
-public class Name implements Predicate<String>{
-
-}
