@@ -1,10 +1,20 @@
 package model;
 
-public class MtUDLinkedList<T> extends AbstractList<T> {
-
-	private Node<T> head;
-	private Node<T> tail;
-	private int size = 0;
+public class MyUDLinkedList<T> extends AbstractList<T> {
+	
+	private Node<T> getPrev(Node<T> node) {
+		if (node == null) {
+			return null;
+		} else if (node == head) {
+			return null;
+		} else {
+			for (Node<T> prev = head; prev != null; prev = prev.getNext()) {
+				if (prev.getNext() == node)
+					return prev;
+			}
+		}
+		return null;
+	}
 	
 	@Override
 	public void add(T data) {
@@ -32,11 +42,6 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 	}
 
 	@Override
-	public void addLast(T data) {
-		add(data);
-	}
-
-	@Override
 	public boolean addByIndex(int index, T data) {
 		if (index < 0 || index > size)
 			return false;
@@ -57,7 +62,7 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 		return true;
 	}
 
-	private Node<T> getNodeByIndex(int index) {
+	protected Node<T> getNodeByIndex(int index) {
 		if (index < 0 || index >= size)
 			return null;
 
@@ -68,52 +73,6 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 			counter++;
 		}
 		return current;
-	}
-
-	@Override
-	public int indexOf(T data) {
-		if (head == null)
-			return -1;
-
-		int counter = 0;
-		for (Node<T> node = head; node != null; node = node.getNext(), counter++) {
-			if (node.getData().equals(data))
-				return counter;
-		}
-
-		return -1;
-	}
-
-	@Override
-	public boolean contains(T data) {
-		if (indexOf(data) != -1)
-			return true;
-		else
-			return false;
-	}
-
-	@Override
-	public T get(int index) {
-		return (index < 0 || index >= size) ? null : getNodeByIndex(index).getData();
-	}
-
-	@Override
-	public T getFirst() {
-		return head == null ? null : head.getData();
-	}
-
-	@Override
-	public T getLast() {
-		return tail == null ? null : tail.getData();
-	}
-
-	@Override
-	public boolean set(int index, T data) {
-		if (index < 0 || index >= size)
-			return false;
-
-		getNodeByIndex(index).setData(data);
-		return true;
 	}
 
 	@Override
@@ -133,7 +92,7 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 		}
 	}
 
-	private void eliminate(Node<T> node){
+	protected void eliminate(Node<T> node){
 		if (node == null)
 			return;
 		
@@ -160,23 +119,6 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 	}
 
 	@Override
-	public T remove(int index) {
-		if (index < 0 || index >= size)
-			return null;
-		else if (index == 0) {
-			return removeFirst();
-		} else if (index == size) {
-			return removeLast();
-		}
-
-		Node<T> target = getNodeByIndex(index);
-		if (target == null)
-			return null;
-
-		return remove(target);
-	}
-
-	@Override
 	public T remove(T data) {
 		if (head == null)
 			return null;
@@ -187,34 +129,6 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 			}
 		}
 
-		return null;
-	}
-
-	private T removeLastOne() {
-		if (head == null)
-			return null;
-
-		T data = head.getData();
-		eliminate(head);
-		
-		head = null;
-		tail = null;
-		size = 0;
-		
-		return data;
-	}
-
-	private Node<T> getPrev(Node<T> node) {
-		if (node == null) {
-			return null;
-		} else if (node == head) {
-			return null;
-		} else {
-			for (Node<T> prev = head; prev != null; prev = prev.getNext()) {
-				if (prev.getNext() == node)
-					return prev;
-			}
-		}
 		return null;
 	}
 
@@ -242,15 +156,4 @@ public class MtUDLinkedList<T> extends AbstractList<T> {
 			return data;
 		}
 	}
-	
-	public void eliminateAll() {
-		if (head == null)
-			return;
-
-		for (Node<T> node = head; node != null; node = node.getNext()) {
-			node.setData(null);
-			remove(node);
-		}
-	}
-
 }

@@ -5,9 +5,15 @@ import java.util.ListIterator;
 
 public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 
-	private NodeDUO<T> head = null;
-	private NodeDUO<T> tail = null;
-	private int size = 0;
+	
+	
+	public MyLinkedList() {
+		super();
+	}
+
+	public MyLinkedList(AbstractList<T> list) {
+		super(list);
+	}
 
 	@Override
 	public void add(T data) {
@@ -16,7 +22,7 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		if (head == null) {
 			head = node;
 		} else {
-			node.setPrev(tail);
+			node.setPrev((NodeDUO) super.tail);
 			tail.setNext(node);
 		}
 
@@ -27,21 +33,17 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 	@Override
 	public void addFirst(T data) {
 		NodeDUO<T> node = new NodeDUO<T>(data);
+		NodeDUO<T> locHead = (NodeDUO<T>) head;
 
 		if (head == null) {
 			tail = node;
 		} else {
 			node.setNext(head);
-			head.setPrev(node);
+			locHead.setPrev(node);
 		}
 
 		head = node;
 		size++;
-	}
-
-	@Override
-	public void addLast(T data) {
-		add(data);
 	}
 
 	@Override
@@ -68,13 +70,14 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		return true;
 	}
 
-	private NodeDUO<T> getNodeByIndex(int index) {
+	protected NodeDUO<T> getNodeByIndex(int index) {
 		if (index < 0 || index > size)
 			return null;
 		
 		NodeDUO<T> result = null;
 		if (index < (size / 2)) {
-			result = head;
+			NodeDUO<T> locHead = (NodeDUO<T>) head;
+			result = locHead;
 			int counter = 0;
 
 			while (counter < index) {
@@ -82,7 +85,8 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 				counter++;
 			}
 		} else {
-			result = tail;
+			NodeDUO<T> locTail = (NodeDUO<T>) tail;
+			result = locTail;
 			int counter = size - 1;
 
 			while (counter > index) {
@@ -94,71 +98,12 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		return result;
 	}
 
-	@Override
-	public int indexOf(T data) {
-		if (head == null)
-			return -1;
-
-		int counter = 0;
-		for (NodeDUO<T> node = head; node != null; node = node.getNext(), counter++) {
-			if (node.getData().equals(data))
-				return counter;
-		}
-
-		return -1;
-	}
-
-	@Override
-	public boolean contains(T data) {
-		if (indexOf(data) != -1)
-			return true;
-		else
-			return false;
-	}
-
-	@Override
-	public T get(int index) {
-		return (index < 0 || index >= size) ? null : getNodeByIndex(index).getData();
-	}
-
-	@Override
-	public T getFirst() {
-		return head == null ? null : head.getData();
-	}
-
-	@Override
-	public T getLast() {
-		return tail == null ? null : tail.getData();
-	}
-
-	@Override
-	public boolean set(int index, T data) {
-		if (index < 0 || index >= size)
-			return false;
-
-		getNodeByIndex(index).setData(data);
-		return true;
-	}
-
-	private T removeLastOne() {
-		if (head == null)
-			return null;
-		
-		T data = head.getData();
-		eliminate(head);
-		
-		head = null;
-		tail = null;
-		size = 0;
-		
-		return data;
-	}
-
-	private void eliminate(NodeDUO<T> node){
+	protected void eliminate(Node<T> node){
+		NodeDUO<T> duoNode = (NodeDUO<T>) node;
 		if (node == null)
 			return;
 		
-		node.setPrev(null);
+		duoNode.setPrev(null);
 		node.setNext(null);
 		node.setData(null);
 	}
@@ -170,9 +115,10 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeDUO<T> node = head;
+			NodeDUO<T> locHead = (NodeDUO<T>) head;
+			NodeDUO<T> node = locHead;
 			head = node.getNext();
-			head.setPrev(null);
+			locHead.setPrev(null);
 			size--;
 			
 			T data = node.getData();
@@ -188,7 +134,8 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeDUO<T> node = tail;
+			NodeDUO<T> locTail = (NodeDUO<T>) tail;
+			NodeDUO<T> node = locTail;
 			tail = node.getPrev();
 			tail.setNext(null);
 			size--;
@@ -199,31 +146,15 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 		}
 	}
 
-	@Override
-	public T remove(int index) {
-		if (index < 0 || index >= size)
-			return null;
-		else if (index == 0) {
-			return removeFirst();
-		} else if (index == size) {
-			return removeLast();
-		}
-
-		NodeDUO<T> target = getNodeByIndex(index);
-		if (target == null)
-			return null;
-
-		return remove(target);
-	}
-
-	protected T remove(NodeDUO<T> node) {
+	protected T remove(Node<T> node) {
+		NodeDUO<T> duoNode = (NodeDUO<T>) node;
 		if (node == null) {
 			return null;
 		} else if (head == tail) {
 			return removeLastOne();
 		} else {
-			NodeDUO<T> prev = node.getPrev();
-			NodeDUO<T> next = node.getNext();
+			NodeDUO<T> prev = duoNode.getPrev();
+			NodeDUO<T> next = duoNode.getNext();
 
 			if (next == null)
 				return removeLast();
@@ -238,52 +169,9 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 			size--;
 
 			T data = node.getData();
-			eliminate(node);
+			eliminate(duoNode);
 			return data;
 		}
-	}
-
-	@Override
-	public T remove(T data) {
-		if (head == null)
-			return null;
-
-		for (NodeDUO<T> node = head; node != null; node = node.getNext()) {
-			if (node.getData().equals(data)) {
-				return remove(node);
-			}
-		}
-
-		return null;
-	}
-	
-	public void eliminateAll() {
-		if (head == null)
-			return;
-
-		Node<T> next = head;
-		while (next != null) {
-			Node<T> node = next;
-			node.setData(null);
-			next = node.getNext();
-			remove(node);
-		}
-	}
-
-	@Override
-	public int size() {
-		return size;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		Node<T> temp = head;
-		while (temp != null) {
-			sb.append(temp.getData() + " ");
-			temp = temp.getNext();
-		}
-		return "[" + sb.toString().trim() + "]";
 	}
 
 	@Override
@@ -292,15 +180,16 @@ public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 	}
 	
 	public Iterator<T> backIterator() {
-		return new MyLinkedlistBackIterator(tail);
+		return new MyLinkedlistBackIterator((NodeDUO<T>) tail);
 	}
 	
 	public Iterator<T> butterflyIterator() {
-		return new MyLnkLstBttrflItr(head);
+		return new MyLnkLstBttrflItr((NodeDUO<T>) head);
 	}
 	
 	public ListIterator<T> listIterator(){
-		return new MyLinkedListListIterator(this, head);
+		MyLinkedListListIterator<T> iter = new MyLinkedListListIterator<T>(this);
+		return iter;
 	}
 
 }

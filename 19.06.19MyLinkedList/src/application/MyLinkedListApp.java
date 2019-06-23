@@ -1,6 +1,5 @@
 package application;
 
-import model.MyLinkedStack;
 import java.util.Iterator;
 
 import model.MyLinkedList;
@@ -9,35 +8,16 @@ public class MyLinkedListApp {
 
 	public static void main(String[] args) {
 		
-		MyLinkedStack<Integer> mlli = new MyLinkedStack<>();
+		MyLinkedList<Integer> mlli = new MyLinkedList<>();
 		
-		mlli.push(3);
-		mlli.push(11);
-		mlli.push(-8);
-		mlli.push(4);
-		mlli.push(-2);
-		mlli.push(6);
+		mlli.add(3);
+		mlli.add(11);
+		mlli.add(-8);
+		mlli.add(4);
+		mlli.add(-2);
+		mlli.add(6);
 		
-		
 		System.out.println(mlli);
-		
-		System.out.println(mlli.peek());
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.push(3);
-		System.out.println(mlli);
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.poll();
-		mlli.poll();
-		System.out.println(mlli);
-		mlli.push(6);
 		System.out.println(mlli);
 		mlli.add(9);
 		System.out.println(mlli);
@@ -45,9 +25,8 @@ public class MyLinkedListApp {
 		System.out.println(mlli);
 		mlli.add(9);
 		
-		Iterator<Integer> it = mlli.butterflyIterator();
+		Iterator<Integer> it = mlli.listIterator();
 		while(it.hasNext())
 			System.out.print(it.next() + "  ");
 	}
-	
 }

@@ -4,11 +4,11 @@ import java.util.Iterator;
 
 public class MyLnkLstBttrflItr<T> implements Iterator<T> {
 
-	private Node<T> current;
+	private NodeDUO<T> current;
 	private boolean backwards = false;
 	private boolean good = true;
 	
-	public MyLnkLstBttrflItr(Node<T> head) {
+	public MyLnkLstBttrflItr(NodeDUO<T> head) {
 		super();
 		this.current = head;
 	}

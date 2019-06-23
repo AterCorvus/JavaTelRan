@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 public class MyLinkedlistBackIterator<T> implements Iterator<T>{
 
-	Node<T> current;
+	NodeDUO<T> current;
 	
-	public MyLinkedlistBackIterator(Node<T> tail) {
+	public MyLinkedlistBackIterator(NodeDUO<T> tail) {
 		super();
 		 this.current = tail;
 	}
