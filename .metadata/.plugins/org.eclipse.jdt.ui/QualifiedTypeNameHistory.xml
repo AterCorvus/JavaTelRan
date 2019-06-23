@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< HEAD
     <fullyQualifiedTypeName name="model.NodeUD"/>
+=======
+<fullyQualifiedTypeName name="model.NodeUD"/>
+<fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+>>>>>>> 34753b8b33a6aa8c03d45f61166cd8975c7c0715
 </qualifiedTypeNameHistroy>

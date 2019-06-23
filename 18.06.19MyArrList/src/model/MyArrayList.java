@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Random;
 
 public class MyArrayList<T> implements MyList<T> {
@@ -135,6 +136,10 @@ public class MyArrayList<T> implements MyList<T> {
 			sb.append("  " + array[i]);
 		
 		return "[" + sb.toString().trim() + "]";
+	}
+	
+	public Iterator<T> iterator() {
+		return new MyLinkedListIterator(this);
 	}
 
 }

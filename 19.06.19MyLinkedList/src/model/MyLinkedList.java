@@ -1,6 +1,9 @@
 package model;
 
-public class MyLinkedList<T> extends AbstractList<T> {
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class MyLinkedList<T> extends AbstractList<T> implements Iterable<T> {
 
 	private NodeDUO<T> head = null;
 	private NodeDUO<T> tail = null;
@@ -258,10 +261,46 @@ public class MyLinkedList<T> extends AbstractList<T> {
 		if (head == null)
 			return;
 
-		for (NodeDUO<T> node = head; node != null; node = node.getNext()) {
+		Node<T> next = head;
+		while (next != null) {
+			Node<T> node = next;
 			node.setData(null);
+			next = node.getNext();
 			remove(node);
 		}
+	}
+
+	@Override
+	public int size() {
+		return size;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Node<T> temp = head;
+		while (temp != null) {
+			sb.append(temp.getData() + " ");
+			temp = temp.getNext();
+		}
+		return "[" + sb.toString().trim() + "]";
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new MyLinkedListIterator(head);
+	}
+	
+	public Iterator<T> backIterator() {
+		return new MyLinkedlistBackIterator(tail);
+	}
+	
+	public Iterator<T> butterflyIterator() {
+		return new MyLnkLstBttrflItr(head);
+	}
+	
+	public ListIterator<T> listIterator(){
+		return new MyLinkedListListIterator(this, head);
 	}
 
 }

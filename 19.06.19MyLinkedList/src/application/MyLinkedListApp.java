@@ -1,6 +1,9 @@
 package application;
 
 import model.MyLinkedStack;
+import java.util.Iterator;
+
+import model.MyLinkedList;
 
 public class MyLinkedListApp {
 
@@ -36,6 +39,15 @@ public class MyLinkedListApp {
 		System.out.println(mlli);
 		mlli.push(6);
 		System.out.println(mlli);
+		mlli.add(9);
+		System.out.println(mlli);
+		mlli.eliminateAll();
+		System.out.println(mlli);
+		mlli.add(9);
+		
+		Iterator<Integer> it = mlli.butterflyIterator();
+		while(it.hasNext())
+			System.out.print(it.next() + "  ");
 	}
 	
 }
