@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=24.06.19JUnitIntro/src&lt;numbers{ICalculator.java[ICalculator" modifiers="513" timestamp="1561359384521"/>
-<typeInfo handle="=24.06.19JUnitIntro/src&lt;numbers{SimpleCalculator.java[SimpleCalculator" modifiers="1" timestamp="1561365396343"/>
-<typeInfo handle="=24.06.19JUnitIntro/src&lt;persons{Person.java[Person" modifiers="1" timestamp="1561375120979"/>
-<typeInfo handle="=24.06.19JUnitIntro/src&lt;persons.interfaces{IPersons.java[IPersons" modifiers="513" timestamp="1561377339794"/>
-<typeInfo handle="=24.06.19JUnitIntro/src&lt;persons.implementation{PersonsList.java[PersonsList" modifiers="1025" timestamp="1561378247608"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>
