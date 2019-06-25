@@ -7,7 +7,7 @@ public class MuskingApp {
 	public static void main(String[] args) {
 		/*int x = 17;
 		System.out.println(x << 3);*/
-		boolean[] info = {false, true, true, true, true, true, false, true};
+		/*boolean[] info = {false, true, true, true, true, true, false, true};
 		byte encodedInfo = encode(info);
 		System.out.println(encodedInfo);
 		
@@ -20,7 +20,14 @@ public class MuskingApp {
 			if (info[i])
 				result = (byte) (result | (1 << i));
 		}
-		return result;
+		return result;*/
+		
+		int x = 245;
+		int n = 3;
+		
+		int res = x&((1 << n) -1);
+		
+		System.out.println(res);
 	}
 	
 	public static boolean[] decode(byte encoded) {
