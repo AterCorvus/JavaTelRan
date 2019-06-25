@@ -41,9 +41,9 @@ public class MyArrayList<T> implements MyList<T> {
 	}
 
 	@Override
-	public boolean add(T data, int index) {
-		if (index < 0 || index > size)
-			return false;
+	public boolean add(T data, int index) throws MyArrayListOutOfBounds {
+		if (index < 0 || index > size) 
+			throw new MyArrayListOutOfBounds("addByIndex error", index, size);
 		
 		if (size == capacity)
 			enlargeArr();
