@@ -2,5 +2,15 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="randomLib.RandomLib"/>
 <fullyQualifiedTypeName name="model.IGarage.SORTER_CAR"/>
+<fullyQualifiedTypeName name="comparators.IdComp"/>
+<fullyQualifiedTypeName name="comparators.NaturalComparator"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
+<fullyQualifiedTypeName name="application.LambdaExpressionApp"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="comparators.YearCarComp"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.function.Predicate"/>
+<fullyQualifiedTypeName name="dto.CarComparators"/>
 </qualifiedTypeNameHistroy>
