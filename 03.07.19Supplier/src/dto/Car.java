@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.Comparator;
+
 import randomLib.RandomLib;
 
 public class Car implements Comparable<Car>{
