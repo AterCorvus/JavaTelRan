@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="comparators.NaturalComparator"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
 <fullyQualifiedTypeName name="application.LambdaExpressionApp"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="comparators.YearCarComp"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
@@ -19,4 +18,8 @@
 <fullyQualifiedTypeName name="dto.CarComparators"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="dto.Office"/>
+<fullyQualifiedTypeName name="model.Garage"/>
 </qualifiedTypeNameHistroy>
