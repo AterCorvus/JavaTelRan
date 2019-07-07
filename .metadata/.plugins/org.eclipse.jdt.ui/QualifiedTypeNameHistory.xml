@@ -22,4 +22,7 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="dto.Office"/>
 <fullyQualifiedTypeName name="model.Garage"/>
+<fullyQualifiedTypeName name="accumulators.DoubleAccumulator"/>
+<fullyQualifiedTypeName name="java.util.stream.Stream"/>
+<fullyQualifiedTypeName name="java.util.stream.Stream.Builder"/>
 </qualifiedTypeNameHistroy>
