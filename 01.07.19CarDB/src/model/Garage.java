@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import dto.Car;
 
@@ -13,6 +14,11 @@ public class Garage implements IGarage {
 	private TreeMap<String, TreeSet<Car>> modelTM = new TreeMap<>();
 	private TreeMap<Integer, TreeSet<Car>> yearTM = new TreeMap<>();
 	private TreeMap<Double, TreeSet<Car>> engineTM = new TreeMap<>();
+	
+	@Override
+	public Stream<Car> toStream() {
+		return idHM.values().stream();
+	}
 	
 	@Override
 	public void fill(int numCar) {

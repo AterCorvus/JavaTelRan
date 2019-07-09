@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.stream.Stream;
+
 import randomLib.RandomLib;
 
 public class Car implements Comparable<Car>{
@@ -142,4 +144,7 @@ public class Car implements Comparable<Car>{
 		return result;
 	}
 
+	public static Stream<Car> createCarStream(int numCars) {
+		return Stream.generate(() -> Car.randomCar()).limit(numCars);
+	}
 }

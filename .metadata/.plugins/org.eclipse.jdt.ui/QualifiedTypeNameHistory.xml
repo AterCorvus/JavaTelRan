@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="application.Chinese"/>
 <fullyQualifiedTypeName name="application.SecondName"/>
 <fullyQualifiedTypeName name="java.util.function.Supplier"/>
-<fullyQualifiedTypeName name="dto.Car"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="dto.CarComparators"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -24,5 +23,11 @@
 <fullyQualifiedTypeName name="model.Garage"/>
 <fullyQualifiedTypeName name="accumulators.DoubleAccumulator"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+<fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream.Builder"/>
+<fullyQualifiedTypeName name="dto.Car"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
