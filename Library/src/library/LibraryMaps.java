@@ -1,12 +1,14 @@
 package library;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 
 import dto.Author;
@@ -18,12 +20,18 @@ import enumerations.Title;
 public class LibraryMaps extends Library{
 
 	private Map<Long, Book> library;
+	private HashMap<Publisher, Set<Book>> allByPublish;
+	private HashMap<String, Set<Book>> allByPC;
+	private TreeMap<Set<Author>, Set<Book>> sortAuthor;
+	private TreeMap<String, Set<Book>> sortTittle;
+	private TreeMap<LocalDate, Set<Book>> sortPD;
+	private TreeMap<Integer, Set<Book>> sortPrice;
 
 	private LibraryMaps(Map<Long, Book> library) {
 		super();
 		this.library = library;
 	}
-
+	
 	public LibraryMaps() {
 		super();
 		this.library = new HashMap<>();
@@ -54,27 +62,22 @@ public class LibraryMaps extends Library{
 
 	@Override
 	public Iterable<Book> getAllBooks() {
-		Set<Book> books = new HashSet<>();
-		for(Entry<Long, Book> entry : library.entrySet())
-			books.add(entry.getValue());
-		return books;
+		return library.values();
 	}
 
 	@Override
 	public List<Book> getAllBooksAsList() {
-		
+		return new ArrayList<>(library.values());
 	}
 
 	@Override
 	public Set<Book> getAllBooksAsSet() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<>(library.values());
 	}
 
 	@Override
 	public Stream<Book> getAllBooksAsStream() {
-		// TODO Auto-generated method stub
-		return null;
+		return library.values().stream();
 	}
 
 	@Override
@@ -115,26 +118,34 @@ public class LibraryMaps extends Library{
 
 	@Override
 	public Iterable<Book> getAllBooksSortedByAuthors() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Book> result = new LinkedHashSet<Book>();
+		for(Set<Book> aBooks : sortAuthor.values())
+			result.addAll(aBooks);
+		return result;
 	}
 
 	@Override
 	public Iterable<Book> getAllBooksSortedByTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Book> result = new LinkedHashSet<Book>();
+		for(Set<Book> tBooks : sortTittle.values())
+			result.addAll(tBooks);
+		return result;
 	}
 
 	@Override
 	public Iterable<Book> getAllBooksSortedByPublishingDate() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Book> result = new LinkedHashSet<Book>();
+		for(Set<Book> pDBooks : sortPD.values())
+			result.addAll(pDBooks);
+		return result;
 	}
 
 	@Override
 	public Iterable<Book> getAllBooksSortedByPrice() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Book> result = new LinkedHashSet<Book>();
+		for(Set<Book> pBooks : sortPrice.values())
+			result.addAll(pBooks);
+		return result;
 	}
 
 }
