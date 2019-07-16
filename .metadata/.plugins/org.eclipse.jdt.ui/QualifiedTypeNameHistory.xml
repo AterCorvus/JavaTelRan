@@ -26,7 +26,6 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream.Builder"/>
 <fullyQualifiedTypeName name="dto.Car"/>
-<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
@@ -40,4 +39,5 @@
 <fullyQualifiedTypeName name="config.Config"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="dto.Animal"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 </qualifiedTypeNameHistroy>
