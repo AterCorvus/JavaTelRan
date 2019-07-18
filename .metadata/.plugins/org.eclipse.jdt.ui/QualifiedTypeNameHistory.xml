@@ -40,4 +40,6 @@
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="dto.Animal"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="dto.Employee"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
 </qualifiedTypeNameHistroy>
