@@ -2,19 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="PARSERS" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="PARSERS"/>
+			<item value="types"/>
+			<item value="data"/>
+			<item value="primitivesMap"/>
 			<item value="null"/>
 			<item value="modelHM"/>
 			<item value="TreeMap"/>
 			<item value="`"/>
-			<item value="System.out.println(mlli);"/>
-			<item value="gen"/>
-			<item value="garage"/>
 		</list>
 		<list key="replacehistory">
 			<item value="filtered"/>
