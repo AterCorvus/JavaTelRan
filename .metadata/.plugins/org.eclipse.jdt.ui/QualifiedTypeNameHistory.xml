@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="dto.CarComparators"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="dto.Office"/>
 <fullyQualifiedTypeName name="model.Garage"/>
 <fullyQualifiedTypeName name="accumulators.DoubleAccumulator"/>
@@ -43,4 +42,9 @@
 <fullyQualifiedTypeName name="dto.Employee"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="application.Kolkhoz"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="application.SomeThread"/>
+<fullyQualifiedTypeName name="application.Kukushka"/>
 </qualifiedTypeNameHistroy>
