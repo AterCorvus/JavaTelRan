@@ -22,7 +22,6 @@
 <fullyQualifiedTypeName name="accumulators.DoubleAccumulator"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream"/>
 <fullyQualifiedTypeName name="org.omg.Messaging.SyncScopeHelper"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.stream.Stream.Builder"/>
 <fullyQualifiedTypeName name="dto.Car"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
@@ -43,8 +42,12 @@
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="application.Kolkhoz"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-<fullyQualifiedTypeName name="application.SomeThread"/>
 <fullyQualifiedTypeName name="application.Kukushka"/>
+<fullyQualifiedTypeName name="org.omg.Messaging.SYNC_WITH_TRANSPORT"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="application.Kolkhoz"/>
+<fullyQualifiedTypeName name="application.SomeThread"/>
+<fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
+<fullyQualifiedTypeName name="application.ZozulaService"/>
 </qualifiedTypeNameHistroy>
