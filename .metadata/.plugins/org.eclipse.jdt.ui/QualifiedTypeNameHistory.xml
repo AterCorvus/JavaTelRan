@@ -34,7 +34,6 @@
 <fullyQualifiedTypeName name="enumerations.AuthorName"/>
 <fullyQualifiedTypeName name="dto.Publisher"/>
 <fullyQualifiedTypeName name="randomlib.RandomLib"/>
-<fullyQualifiedTypeName name="config.Config"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="dto.Animal"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
@@ -50,4 +49,10 @@
 <fullyQualifiedTypeName name="application.SomeThread"/>
 <fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
 <fullyQualifiedTypeName name="application.ZozulaService"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="config.Config"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.time.LocalTime"/>
 </qualifiedTypeNameHistroy>
