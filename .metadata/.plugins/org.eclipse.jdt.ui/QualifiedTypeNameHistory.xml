@@ -58,4 +58,6 @@
 <fullyQualifiedTypeName name="reducer.Reducers"/>
 <fullyQualifiedTypeName name="accumulators.DoubleAverageAccumulator"/>
 <fullyQualifiedTypeName name="application.SingletonPersonEnum"/>
+<fullyQualifiedTypeName name="tcp.Config"/>
+<fullyQualifiedTypeName name="tcp.ClientSocket"/>
 </qualifiedTypeNameHistroy>
