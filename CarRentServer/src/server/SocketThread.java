@@ -10,6 +10,7 @@ import response.Protocol;
 
 public class SocketThread implements Runnable {
 
+
 	private Socket clientConnection;
 	private Protocol protocol;
 

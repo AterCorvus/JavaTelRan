@@ -38,10 +38,8 @@ public interface IRequestHandler {
                          long licenseId, LocalDate returnDate, int damages, int tankPercent);
     //Statistics -
     List<RentRecord>getRentRecordsAtDates(LocalDate from, LocalDate to);
-    List<String> getMostPopularCarModels(LocalDate fromDate,
-                                         LocalDate toDate,int fromAge, int toAge);
-    List<String> getMostProfitableCarModels(LocalDate fromDate,
-                                            LocalDate toDate);
+    List<String> getMostPopularCarModels();
+    List<String> getMostProfitableCarModels();
     List<Driver> getMostActiveDrivers();
     List<String> getModelNames();
 }
