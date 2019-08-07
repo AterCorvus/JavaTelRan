@@ -56,7 +56,7 @@ public class RequestHandler implements IRequestHandler {
 
 	@Override
 	public void rentCar(String regNumber, long licenseId, LocalDate rentDate, int rentDays) {
-		socket.sendSetRequest("Rent", driver);
+		socket.sendSetRequest("Rent");
 	}
 
 	@Override
@@ -120,13 +120,13 @@ public class RequestHandler implements IRequestHandler {
 	}
 
 	@Override
-	public List<String> getMostPopularCarModels(LocalDate fromDate, LocalDate toDate, int fromAge, int toAge) {
+	public List<String> getMostPopularCarModels() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<String> getMostProfitableCarModels(LocalDate fromDate, LocalDate toDate) {
+	public List<String> getMostProfitableCarModels() {
 		// TODO Auto-generated method stub
 		return null;
 	}
