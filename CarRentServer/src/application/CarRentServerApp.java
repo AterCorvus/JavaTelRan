@@ -4,33 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import server.MultiThreadsServer;
+
 public class CarRentServerApp {
-    public static void connect() {
-        Connection conn = null;
-        try {
-            // db parameters
-            String url = "jdbc:sqlite:C:/Users/Gran/Documents/George/Java/db/chinook.db";
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            
-            System.out.println("Connection to SQLite has been established.");
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        connect();
-    }
+	static final int PORT = 2000;
+	static final String MULTI_THREADS_PROTOCOL = "response.MirrorServerResponse";
+	
+	public static void main(String[] args) throws Exception {
+		
+		System.out.println("Dont forget to launch the client side");
+		(new MultiThreadsServer(PORT, MULTI_THREADS_PROTOCOL)).go();
+	}
 }
