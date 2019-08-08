@@ -50,7 +50,7 @@ public class RequestHandler implements IRequestHandler {
 	}
 
 	@Override
-	public void addDriver(Driver driver) throws IOException {
+	public void addDriver(long licenseId, String name, int birthYea, String phone) throws IOException {
 		socket.sendSetRequest("Driver", driver);
 	}
 

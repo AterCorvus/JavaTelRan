@@ -75,7 +75,7 @@ public class Menu {
 			rentCar(regNumber, licenseId, rentDate, rentDays);
 			break;
 		case 5:
-			addDriver();
+			addDriver(licenseId, "", 0, "");
 			break;
 		case 6:
 			try {
@@ -320,69 +320,46 @@ public class Menu {
 		}
 	}
 	
-	private void addDriver(long licenseId) {
+	private void addDriver(long licenseId, String name, int birthYea, String phone) {
 		int swValue;
 		System.out.println("|     Car Rent Company            |");
 		System.out.println("| Add Driver                      |");
-		System.out.println("| Please choose request:          |");
-		System.out.println("|        1. Change Gas Price      |");
-		System.out.println("|        2. Change Fine Percent   |");
-		System.out.println("|        3. Add car 			  |");
-		System.out.println("|        4. Car info              |");
-		System.out.println("|        5. Driver info           |");
-		System.out.println("|        6. Model info            |");
-		System.out.println("|        7. Remove Car            |");
-		System.out.println("|        8. Remove Model           |");
-		System.out.println("|        9. Back            	  |");
+		System.out.println("| Please fill all cells:          |");
+		System.out.println("|        1. license Number        |" + licenseId);
+		System.out.println("|        2. Full Name             |" + name);
+		System.out.println("|        3. Birth Year 			  |" + birthYea);
+		System.out.println("|        4. Phone Number          |" + phone);
+		System.out.println("|        5. Add                   |");
+		System.out.println("|        9. Cancele            	  |");
 		swValue = Keyin.inInt(" Select option: ");
 
 		switch (swValue) {
 		case 1:
-			gasPrice = Keyin.inInt(" Enter Gas Price: ");
-			try {
-				RequestHandler rh = new RequestHandler();
-				rh.setGasPrice(gasPrice);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			config(gasPrice, finePercent);
+			Keyin.printPrompt(" Enter Driver license number: ");
+			licenseId = Long.parseLong(Keyin.inString());
+			addDriver(licenseId, name, birthYea, phone);
 			break;
 		case 2:
-			finePercent = Keyin.inInt(" Enter Fine Percent: ");
-			try {
-				RequestHandler rh = new RequestHandler();
-				rh.setFinePercent(finePercent);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			config(gasPrice, finePercent);
+			Keyin.printPrompt(" Enter Full Name: ");
+			name = Keyin.inString();
+			addDriver(licenseId, name, birthYea, phone);
 			break;
 		case 3:
-			try {
-				RequestHandler rh = new RequestHandler();
-				System.out.println(rh.getMostProfitableCarModels());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			statistic();
+			birthYea = Keyin.inInt(" Enter Birth Year: ");
+			addDriver(licenseId, name, birthYea, phone);
 			break;
 		case 4:
-			try {
-				RequestHandler rh = new RequestHandler();
-				System.out.println(rh.getMostActiveDrivers());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			statistic();
+			Keyin.printPrompt(" Enter Phone Number: ");
+			name = Keyin.inString();
+			addDriver(licenseId, name, birthYea, phone);
 			break;
 		case 5:
 			try {
 				RequestHandler rh = new RequestHandler();
-				System.out.println(rh.getModelNames());
+				rh.addDriver(licenseId, name, birthYea, phone);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			statistic();
 			break;
 		case 6:
 			main();

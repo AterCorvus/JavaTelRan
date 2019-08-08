@@ -19,7 +19,7 @@ public interface IRequestHandler {
     void addModel(Model model) throws IOException; //-
     void addCar(Car car) throws IOException; //+
     //Add Driver +
-    void addDriver(Driver driver) throws IOException;
+    void addDriver(long licenseId, String name, int birthYea, String phone) throws IOException;
     //Rent car +
     void rentCar(String regNumber, long licenseId,
                            LocalDate rentDate, int rentDays);
