@@ -3,14 +3,15 @@ package menu;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+import dto.State;
 import handler.RequestHandler;
 
 public class Menu {
-	
-	Menu(){
+
+	Menu() {
 		main();
 	}
-	
+
 	private void main() {
 		int swValue;
 		System.out.println("|     Car Rent Company     |");
@@ -76,6 +77,7 @@ public class Menu {
 			break;
 		case 5:
 			addDriver(licenseId, "", 0, "");
+			rentCar(regNumber, licenseId, rentDate, rentDays);
 			break;
 		case 6:
 			try {
@@ -285,22 +287,12 @@ public class Menu {
 			config(gasPrice, finePercent);
 			break;
 		case 3:
-			try {
-				RequestHandler rh = new RequestHandler();
-				System.out.println(rh.getMostProfitableCarModels());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			statistic();
+			addDriver(0, "", 0, "");
+			config(gasPrice, finePercent);
 			break;
 		case 4:
-			try {
-				RequestHandler rh = new RequestHandler();
-				System.out.println(rh.getMostActiveDrivers());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			statistic();
+			addDriver(0, "", 0, "");
+			config(gasPrice, finePercent);
 			break;
 		case 5:
 			try {
@@ -319,15 +311,122 @@ public class Menu {
 			statistic();
 		}
 	}
+
+	private void addModel(String modelName, int gasTank, String country, int priceDay) {
+		int swValue;
+		System.out.println("|     Car Rent Company            |");
+		System.out.println("| Add Car Model                   |");
+		System.out.println("| Please fill all cells:          |");
+		System.out.println("|        1. Model Name            |" + modelName);
+		System.out.println("|        2. Gas Tank size (liters)|" + gasTank);
+		System.out.println("|        3. Country   			  |" + country);
+		System.out.println("|        4. Price per day         |" + priceDay);
+		System.out.println("|        5. Add                   |");
+		System.out.println("|        9. Cancele            	  |");
+		swValue = Keyin.inInt(" Select option: ");
+
+		switch (swValue) {
+		case 1:
+			Keyin.printPrompt(" Enter Model Name: ");
+			modelName = Keyin.inString();
+			addModel(modelName, gasTank, country, priceDay);
+			break;
+		case 2:
+			gasTank = Keyin.inInt(" Enter Gas Tank size (liters): ");;
+			addModel(modelName, gasTank, country, priceDay);
+			break;
+		case 3:
+			Keyin.printPrompt(" Enter Country ");
+			country = Keyin.inString();
+			addModel(modelName, gasTank, country, priceDay);
+			break;
+		case 4:
+			priceDay = Keyin.inInt(" Enter GPrice per day: ");
+			addModel(modelName, gasTank, country, priceDay);
+			break;
+		case 5:
+			if (birthYea > 1920) {
+				RequestHandler rh = new RequestHandler();
+				rh.addDriver(licenseId, name, birthYea, phone);
+			} else {
+				System.out.println("Wrong data entry");
+				addDriver(licenseId, name, birthYea, phone);
+			}
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Invalid selection");
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+		}
+
+	}
 	
-	private void addDriver(long licenseId, String name, int birthYea, String phone) {
+	private void addCar(String regNumber, String color, State state, String modelName, boolean inUse,
+			boolean flRemoved) {
+		int swValue;
+		System.out.println("|     Car Rent Company            |");
+		System.out.println("| Add Car                         |");
+		System.out.println("| Please fill all cells:          |");
+		System.out.println("|        1. Registration Number   |" + regNumber);
+		System.out.println("|        2. Color                 |" + color);
+		System.out.println("|        3. State   			  |" + state);
+		System.out.println("|        4. Model Name            |" + modelName);
+		System.out.println("|        5. Add                   |");
+		System.out.println("|        9. Cancele            	  |");
+		swValue = Keyin.inInt(" Select option: ");
+
+		switch (swValue) {
+		case 1:
+			Keyin.printPrompt(" Enter Registration Number: ");
+			regNumber = Keyin.inString();
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+			break;
+		case 2:
+			Keyin.printPrompt(" Enter Car Color: ");
+			color = Keyin.inString();
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+			break;
+		case 3:
+			Keyin.printPrompt(" Enter Car State: EXCELLENT, GOOD, BAD ");
+			String strState = Keyin.inString();
+			try {
+				state = State.valueOf(strState);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+			break;
+		case 4:
+			Keyin.printPrompt(" Enter Model Name: ");
+			modelName = Keyin.inString();
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+			break;
+		case 5:
+			try {
+				RequestHandler rh = new RequestHandler();
+				rh.addCar(regNumber, color, state, modelName, inUse, flRemoved);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Invalid selection");
+			addCar(regNumber, color, state, modelName, inUse, flRemoved);
+		}
+
+	}
+
+	private void addDriver(long licenseId, String name, int birthYear, String phone) {
 		int swValue;
 		System.out.println("|     Car Rent Company            |");
 		System.out.println("| Add Driver                      |");
 		System.out.println("| Please fill all cells:          |");
 		System.out.println("|        1. license Number        |" + licenseId);
 		System.out.println("|        2. Full Name             |" + name);
-		System.out.println("|        3. Birth Year 			  |" + birthYea);
+		System.out.println("|        3. Birth Year 			  |" + birthYear);
 		System.out.println("|        4. Phone Number          |" + phone);
 		System.out.println("|        5. Add                   |");
 		System.out.println("|        9. Cancele            	  |");
@@ -337,37 +436,41 @@ public class Menu {
 		case 1:
 			Keyin.printPrompt(" Enter Driver license number: ");
 			licenseId = Long.parseLong(Keyin.inString());
-			addDriver(licenseId, name, birthYea, phone);
+			addDriver(licenseId, name, birthYear, phone);
 			break;
 		case 2:
 			Keyin.printPrompt(" Enter Full Name: ");
 			name = Keyin.inString();
-			addDriver(licenseId, name, birthYea, phone);
+			addDriver(licenseId, name, birthYear, phone);
 			break;
 		case 3:
-			birthYea = Keyin.inInt(" Enter Birth Year: ");
-			addDriver(licenseId, name, birthYea, phone);
+			birthYear = Keyin.inInt(" Enter Birth Year: ");
+			addDriver(licenseId, name, birthYear, phone);
 			break;
 		case 4:
 			Keyin.printPrompt(" Enter Phone Number: ");
 			name = Keyin.inString();
-			addDriver(licenseId, name, birthYea, phone);
+			addDriver(licenseId, name, birthYear, phone);
 			break;
 		case 5:
 			try {
-				RequestHandler rh = new RequestHandler();
-				rh.addDriver(licenseId, name, birthYea, phone);
+				if (birthYear > 1920) {
+					RequestHandler rh = new RequestHandler();
+					rh.addDriver(licenseId, name, birthYear, phone);
+				} else {
+					System.out.println("Wrong data entry");
+					addDriver(licenseId, name, birthYear, phone);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			break;
 		case 6:
-			main();
 			break;
 		default:
 			System.out.println("Invalid selection");
-			statistic();
+			addDriver(licenseId, name, birthYear, phone);
 		}
 	}
-	
+
 }

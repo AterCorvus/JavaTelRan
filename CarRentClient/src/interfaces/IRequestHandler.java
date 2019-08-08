@@ -8,6 +8,7 @@ import dto.Car;
 import dto.Driver;
 import dto.Model;
 import dto.RentRecord;
+import dto.State;
 
 public interface IRequestHandler {
 	// Global config +
@@ -16,10 +17,10 @@ public interface IRequestHandler {
     int getFinePercent() throws ClassNotFoundException, IOException;
     void setFinePercent(int finePercent) throws IOException;
     //Add Car -
-    void addModel(Model model) throws IOException; //-
-    void addCar(Car car) throws IOException; //+
+    void addModel(String modelName, int gasTank, String country, int priceDay) throws IOException; //-
+    void addCar(String regNumber, String color, State state, String modelName, boolean inUse, boolean  flRemoved) throws IOException; //+
     //Add Driver +
-    void addDriver(long licenseId, String name, int birthYea, String phone) throws IOException;
+    void addDriver(long licenseId, String name, int birthYear, String phone) throws IOException;
     //Rent car +
     void rentCar(String regNumber, long licenseId,
                            LocalDate rentDate, int rentDays);

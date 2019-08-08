@@ -8,6 +8,7 @@ import dto.Car;
 import dto.Driver;
 import dto.Model;
 import dto.RentRecord;
+import dto.State;
 import interfaces.IRequestHandler;
 import tcp.ClientSocket;
 
@@ -40,17 +41,17 @@ public class RequestHandler implements IRequestHandler {
 	}
 
 	@Override
-	public void addModel(Model model) throws IOException {
+	public void addModel(String modelName, int gasTank, String country, int priceDay) throws IOException {
 		socket.sendSetRequest("Model", model);
 	}
 
 	@Override
-	public void addCar(Car car) throws IOException {
+	public void addCar(String regNumber, String color, State state, String modelName, boolean inUse, boolean  flRemoved) throws IOException {
 		socket.sendSetRequest("Car", car);
 	}
 
 	@Override
-	public void addDriver(long licenseId, String name, int birthYea, String phone) throws IOException {
+	public void addDriver(long licenseId, String name, int birthYear, String phone) throws IOException {
 		socket.sendSetRequest("Driver", driver);
 	}
 
