@@ -1,0 +1,12 @@
+package test;
+
+import dto.Person;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		Person p = new Person("Sasha", 60, 79.5, true);
+		
+	}
+}
